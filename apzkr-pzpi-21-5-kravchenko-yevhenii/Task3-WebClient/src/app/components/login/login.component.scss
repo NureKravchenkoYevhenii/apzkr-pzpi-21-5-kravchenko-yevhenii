@@ -1,0 +1,28 @@
+.login-form {
+    width: 70vmin;
+    height: 42vmin;
+    border-radius: 5vmin;
+    padding: 5vmin;
+    background-color: white;
+    box-shadow: 1px 1px 30px;
+
+    &__title {
+        text-align: center;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+    &__content {
+        height: 100%;
+        padding: 2vmin;
+        overflow: auto;
+    }
+    
+    &__submit {
+        margin-top: 20px;
+        
+        button {
+            background-color: #A5C9FF;
+        }
+    }
+}

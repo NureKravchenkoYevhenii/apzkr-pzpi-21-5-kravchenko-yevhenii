@@ -1,0 +1,55 @@
+<div class="users-table-wrapper">
+    <div class="users-table__search">
+        <div class="row mb-4 gx-5">
+            <div class="col-6 mt-4">
+                <div class="d-flex align-items-center gap-3 w-100">
+                    <div class="form-group mb-3 w-100">
+                        <input [(ngModel)]="searchQuery" type="text" class="form-control" id="search" placeholder="{{'EnterText' | translateAsync}}">
+                    </div>
+                    <button (click)="onSearchClick()" type="button" class="btn btn-primary mb-3">{{'search' | translateAsync}}</button>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="users-table__upload col-3 w-100">
+                    <div class="d-flex gap-3">
+                        <div class="form-group">
+                            <label for="fileUpload">{{'UploadUsers' | translateAsync}}</label>
+                            <input type="file" accept=".xlsx" class="form-control" id="fileUpload">
+                        </div>
+                        <button (click)="onUploadClick()" type="button" class="btn btn-success mt-3">{{'Upload' | translateAsync}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    <div class="users-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{'Name' | translateAsync}}</th>
+                    <th scope="col">{{'BirthDate' | translateAsync}}</th>
+                    <th scope="col">{{'Email' | translateAsync}}</th>
+                    <th *ngIf="isAdmin()">{{'Role' | translateAsync}}</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let user of users$ | async">
+                    <th scope="row">{{ user.id }}</th>
+                    <td>{{ user.lastName + " " + user.firstName }}</td>
+                    <td>{{ user.birthDateString }}</td>
+                    <td>{{ user.email }}</td>
+                    <td *ngIf="isAdmin()">
+                        <select class="form-select" (change)="onChange($event, user.id)">
+                            <option *ngFor="let role of getRoles(); trackBy: identify" [value]="role.value" [label]="role.label" [selected]="role.value === user.role"></option>
+                        </select>
+                    </td>
+                    <td *ngIf="isParkingAdmin()">
+                        <button type="button" class="btn btn-primary" (click)="onDetailsButtonClick(user.id)">{{'Details' | translateAsync}}</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

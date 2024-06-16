@@ -1,0 +1,26 @@
+<div class="login-form">
+    <div class="login-form__title">
+        <span>{{ 'login' | translateAsync }}</span>
+    </div>
+    <div class="login-form__content">
+        <form [formGroup]="loginForm">
+            <div class="form-group mb-3">
+                <label for="login">{{ 'login' | translateAsync }}</label>
+                <input formControlName="login" type="text" class="form-control" id="login" placeholder="{{ 'login' | translateAsync }}">
+                <p class="text-center" *ngIf="loginForm.get('login')?.invalid && loginForm.get('login')?.touched">
+                    <small *ngIf="loginForm.get('login')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                </p>
+            </div>
+            <div class="form-group mb-3">
+                <label for="password">{{ 'password' | translateAsync}}</label>
+                <input formControlName="password" type="password" class="form-control" id="password" placeholder="{{ 'password' | translateAsync}}">
+                <p class="text-center" *ngIf="loginForm.get('password')?.invalid && loginForm.get('password')?.touched">
+                    <small *ngIf="loginForm.get('password')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                </p>
+            </div>
+            <div class="login-form__submit text-center parent-container">
+                <button [disabled]="loginForm.invalid" class="btn submit-btn btn-lg px-5" (click)="onSubmit()" type="submit">{{ 'enter' | translateAsync }}</button>
+            </div>
+        </form>
+    </div>
+</div>

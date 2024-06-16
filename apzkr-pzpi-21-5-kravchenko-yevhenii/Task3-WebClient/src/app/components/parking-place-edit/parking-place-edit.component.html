@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{'ParkingPlace' | translateAsync}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close(false)"></button>
+</div>
+<div class="modal-body">
+    <div class="parking-place-form">
+        <div class="parking-place-form__content">
+            <form [formGroup]="parkingPlaceForm">
+                <input formControlName="id" type="hidden" id="id">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="name">{{ 'Title' | translateAsync }}</label>
+                            <input formControlName="name" type="text" class="form-control" id="name" placeholder="{{ 'Title' | translateAsync }}">
+                            <p class="text-center" *ngIf="parkingPlaceForm.get('name')?.invalid && parkingPlaceForm.get('name')?.touched">
+                                <small *ngIf="parkingPlaceForm.get('name')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="parking-place-form__buttons text-center parent-container">
+                    <button type="button" class="btn btn-lg px-5 mx-2 btn-danger" (click)="activeModal.close(false)">{{'Cancel' | translateAsync}}</button>
+                    <button [disabled]="parkingPlaceForm.invalid" class="btn submit-btn btn-success btn-lg px-5 mx-2" (click)="onSubmit()" type="submit">{{'Save' | translateAsync}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    
+</div>

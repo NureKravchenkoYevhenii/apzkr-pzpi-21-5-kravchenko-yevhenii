@@ -1,0 +1,27 @@
+<div class="bookings-table-wrapper">
+    <div class="bookings-table__add-button-wrapper">
+        <button class="btn btn-primary" (click)="onAddButtonClick()">+</button>
+    </div>
+    <div class="bookings-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{'BookDate' | translateAsync}}</th>
+                    <th scope="col">{{'ExpireDate' | translateAsync}}</th>
+                    <th scope="col">{{'ParkingPlace' | translateAsync}}</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let booking of bookings$ | async; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ booking.bookDate }}</td>
+                    <td>{{ booking.expireDate }}</td>
+                    <td>{{ booking.parkingPlaceName }}</td>
+                    <td><button type="button" class="btn btn-danger" (click)="onCancelButtonClick(booking.id)">{{'Cancel' | translateAsync}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

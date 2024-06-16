@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{userProfile.lastName}} {{userProfile.firstName}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close(false)"></button>
+</div>
+
+<div class="modal-body">
+    <div class="card" *ngIf="userProfile">
+        <div class="card-body">
+            <h4 class="card-title mb-4">{{'Details' | translateAsync}}</h4>
+            <p class="card-text"><strong>{{'address' | translateAsync}}:</strong> {{ userProfile.address }}</p>
+            <p class="card-text"><strong>{{'phoneNumber' | translateAsync}}:</strong> {{ userProfile.phoneNumber }}</p>
+            <p class="card-text"><strong>{{'email' | translateAsync}}:</strong> {{ userProfile.email }}</p>
+            <p class="card-text"><strong>{{'birthDate' | translateAsync}}:</strong> {{ userProfile.birthDateString }}</p>
+            <p class="card-text"><strong>{{'RegistrationDate' | translateAsync}}:</strong> {{ userProfile.registrationDateStr }}</p>
+        </div>
+    </div>
+    <div class="card" *ngIf="userProfile.userMembershipModel">
+        <div class="card-body">
+            <h4 class="card-title mb-4">{{'Membership' | translateAsync}}</h4>
+            <p class="card-text"><strong>{{'Title' | translateAsync}}:</strong> {{userProfile.userMembershipModel.name}}</p>
+            <p class="card-text"><strong>{{'StartDate' | translateAsync}}:</strong> {{userProfile.userMembershipModel.startDate}}</p>
+            <p class="card-text"><strong>{{'EndDate' | translateAsync}}:</strong> {{userProfile.userMembershipModel.endDate}}</p>
+            <p class="card-text" *ngIf="userProfile.userMembershipModel.comment"><strong>{{'Comment' | translateAsync}}:</strong> {{userProfile.userMembershipModel.comment}}</p>
+            <p class="card-text"><strong>{{'IsBlocked' | translateAsync}}:</strong> {{userProfile.userMembershipModel.isBlocked ? ('Blocked' | translateAsync) : ('Active' | translateAsync)}}</p>
+            <div class="d-flex justify-content-end">
+                <button 
+                    *ngIf="!userProfile.userMembershipModel.isBlocked"
+                    (click)="onBlockMembershipBtnClick(userProfile.userMembershipModel.id)"
+                    type="button"
+                    class="btn px-5 btn-warning">{{'BlockMembership' | translateAsync}}
+                </button>
+                <button
+                    *ngIf="userProfile.userMembershipModel.isBlocked"
+                    (click)="onUnBlockMembershipBtnClick(userProfile.userMembershipModel.id)"
+                    type="button" 
+                    class="btn px-5 btn-warning">{{'UnBlockMembership' | translateAsync}}
+                </button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+</div>
+

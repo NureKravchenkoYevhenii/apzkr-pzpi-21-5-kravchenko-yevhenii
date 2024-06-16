@@ -1,0 +1,29 @@
+<div class="memberships-table-wrapper">
+    <div class="memberships-table__add-button-wrapper">
+        <button class="btn btn-primary" (click)="onEditButtonClick(0)">+</button>
+    </div>
+    <div class="memberships-table">
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">{{'Name' | translateAsync}}</th>
+                    <th scope="col">{{'DurationInDays' | translateAsync}}</th>
+                    <th scope="col">{{'Price' | translateAsync}}</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let membership of memberships$ | async; let i = index">
+                    <th scope="row">{{ i + 1 }}</th>
+                    <td>{{ membership.name }}</td>
+                    <td>{{ membership.durationInDays }}</td>
+                    <td>{{ membership.price | currency:currencySign:'symbol-narrow' }}</td>
+                    <td><button type="button" class="btn btn-primary" (click)="onEditButtonClick(membership.id)">{{'edit' | translateAsync}}</button></td>
+                    <td><button type="button" class="btn btn-danger" (click)="onDeleteButtonClick(membership.id)">{{'delete' | translateAsync}}</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

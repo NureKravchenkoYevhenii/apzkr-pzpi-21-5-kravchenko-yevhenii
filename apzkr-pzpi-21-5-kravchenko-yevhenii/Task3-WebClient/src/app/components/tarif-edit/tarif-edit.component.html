@@ -1,0 +1,89 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{'Tarif' | translateAsync}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close(false)"></button>
+</div>
+
+<div class="modal-body">
+    <div class="tarif-form">
+        <div class="tarif-form__content">
+            <form [formGroup]="tarifForm">
+                <input formControlName="id" type="hidden" id="id">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="name">{{'Title' | translateAsync}}</label>
+                            <input formControlName="name" type="text" class="form-control" id="name" placeholder="{{'Title' | translateAsync}}">
+                            <p class="text-center" *ngIf="tarifForm.get('name')?.invalid && tarifForm.get('name')?.touched">
+                                <small *ngIf="tarifForm.get('name')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="activeOnDaysOfWeek">{{'ActiveOnDaysOfWeek' | translateAsync}}</label>
+                            <select formControlName="activeOnDaysOfWeek" id="activeOnDaysOfWeek" class="form-control" multiple>
+                                <option *ngFor="let day of getDaysOfWeek();" [value]="day.value">{{ day.label }}</option>
+                            </select>
+                            <p class="text-center" *ngIf="tarifForm.get('activeOnDaysOfWeek')?.invalid && tarifForm.get('activeOnDaysOfWeek')?.touched">
+                                <small *ngIf="tarifForm.get('activeOnDaysOfWeek')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="startTime">{{'StartTime' | translateAsync}}</label>
+                            <input formControlName="startTime" type="time" class="form-control" id="startTime">
+                            <p class="text-center" *ngIf="tarifForm.get('startTime')?.invalid && tarifForm.get('startTime')?.touched">
+                                <small *ngIf="tarifForm.get('startTime')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="endTime">{{'EndTime' | translateAsync}}</label>
+                            <input formControlName="endTime" type="time" class="form-control" id="endTime">
+                            <p class="text-center" *ngIf="tarifForm.get('endTime')?.invalid && tarifForm.get('endTime')?.touched">
+                                <small *ngIf="tarifForm.get('endTime')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="timeUnitValue">{{'TimeUnit' | translateAsync}}</label>
+                            <select formControlName="timeUnitValue" id="timeUnitValue" class="form-control">
+                                <option *ngFor="let unit of getTimeUnitValues(); trackBy: identify" [value]="unit.value">{{ unit.label }}</option>
+                            </select>
+                            <p class="text-center" *ngIf="tarifForm.get('timeUnitValue')?.invalid && tarifForm.get('timeUnitValue')?.touched">
+                                <small *ngIf="tarifForm.get('timeUnitValue')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="pricePerTimeUnit">{{'PricePerTimeUnit' | translateAsync}}</label>
+                            <input formControlName="pricePerTimeUnit" type="number" class="form-control" id="pricePerTimeUnit">
+                            <p class="text-center" *ngIf="tarifForm.get('pricePerTimeUnit')?.invalid && tarifForm.get('pricePerTimeUnit')?.touched">
+                                <small *ngIf="tarifForm.get('pricePerTimeUnit')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tarif-form__buttons text-center parent-container">
+                    <button type="button" class="btn btn-lg px-5 mx-2 btn-danger" (click)="activeModal.close(false)">{{'Cancel' | translateAsync}}</button>
+                    <button [disabled]="tarifForm.invalid" class="btn submit-btn btn-success btn-lg px-5 mx-2" (click)="onSubmit()" type="submit">{{'Save' | translateAsync}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<div class="modal-footer">
+</div>
+

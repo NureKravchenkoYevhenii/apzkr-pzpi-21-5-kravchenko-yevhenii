@@ -1,0 +1,50 @@
+<div class="tarifs-table-wrapper">
+    <div class="row"> 
+        <div class="col-10">
+            <div class="tarifs-table__add-button-wrapper">
+                <button class="btn btn-primary" (click)="onEditButtonClick(0)">+</button>
+            </div>
+            <div class="tarifs-table">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">{{'Title' | translateAsync}}</th>
+                            <th scope="col">{{'ActiveOnDaysOfWeek' | translateAsync}}</th>
+                            <th scope="col">{{'StartTime' | translateAsync}}</th>
+                            <th scope="col">{{'EndTime' | translateAsync}}</th>
+                            <th scope="col">{{'TimeUnit' | translateAsync}}</th>
+                            <th scope="col">{{'PricePerTimeUnit' | translateAsync}}</th>
+                            <th></th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let tarif of tarifs$ | async; let i = index">
+                            <th scope="row">{{ i + 1 }}</th>
+                            <td>{{ tarif.name }}</td>
+                            <td>{{ displayActiveDays(tarif.activeOnDaysOfWeek) }}</td>
+                            <td>{{ tarif.startTime }}</td>
+                            <td>{{ tarif.endTime }}</td>
+                            <td>{{ displayTimeUnit(tarif.timeUnitValue) }}</td>
+                            <td>{{ tarif.pricePerTimeUnit | currency:currencySign:'symbol-narrow' }}</td>
+                            <td><button type="button" class="btn btn-primary" (click)="onEditButtonClick(tarif.id)">{{'edit' | translateAsync}}</button></td>
+                            <td><button type="button" class="btn btn-danger" (click)="onDeleteButtonClick(tarif.id)">{{'delete' | translateAsync}}</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-2 mt-5">
+            <div class="form-group mb-3">
+                <label for="dateFrom">{{'From' | translateAsync}}</label>
+                <input type="date" class="form-control" id="dateFrom">
+            </div>
+            <div class="form-group mb-3">
+                <label for="dateto">{{'To' | translateAsync}}</label>
+                <input type="date" class="form-control" id="dateTo">
+            </div>
+            <button (click)="onGetPaymentStatsButtonClick()" type="button" class="btn btn-success mb-3">{{'GetPaymentStatistics' | translateAsync}}</button>
+        </div>
+    </div>
+</div>

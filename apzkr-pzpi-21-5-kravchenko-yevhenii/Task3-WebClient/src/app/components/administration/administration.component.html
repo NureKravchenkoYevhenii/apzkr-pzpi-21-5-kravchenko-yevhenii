@@ -1,0 +1,47 @@
+<div class="administration-wrapper">
+    <div *ngIf="isAdmin()" class="administration__backup">
+        <div class="administration__input">
+            <div class="row">
+                <div class="col">
+                    <div class="form-group mb-3">
+                        <label for="savePath">{{'savePath' | translateAsync}}</label>
+                        <input [(ngModel)]="savePath" type="text" class="form-control" id="savePath" placeholder="{{'savePath' | translateAsync}}">
+                    </div>
+                </div>
+            </div>
+            <button [disabled]="savePath === ''" type="button" class="btn btn-primary" (click)="onBackupDatabaseButtonClick()">{{'backupDatabase' | translateAsync}}</button>
+        </div>
+    </div>
+    <div *ngIf="isParkingAdmin()" class="administration__booking-settings">
+        <div class="container">
+            <div class="card">
+                <div class="card-header">
+                    <h3>{{'BookingSettings' | translateAsync}}</h3>
+                </div>
+                <div class="card-body">
+                    <div class="parking-settings__input">
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <label for="savePath">{{'bookingTimeAdvanceInMinutes' | translateAsync}}</label>
+                                    <input [(ngModel)]="parkingSettings.bookingTimeAdvanceInMinutes" type="number" class="form-control" min="0" id="bookingDurationInMinutes" placeholder="{{'bookingTimeAdvanceInMinutes' | translateAsync}}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col">
+                                <div class="form-group mb-3">
+                                    <label for="savePath">{{'bookingDurationInMinutes' | translateAsync}}</label>
+                                    <input [(ngModel)]="parkingSettings.bookingDurationInMinutes" type="number" class="form-control" min="0" id="bookingDurationInMinutes" placeholder="{{'bookingDurationInMinutes' | translateAsync}}">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group d-flex justify-content-end">
+                        <button type="submit" class="btn btn-primary" (click)="onSaveParkingSettings()">{{'saveParkingSettings' | translateAsync}}</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,53 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{'Membership' | translateAsync}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close(false)"></button>
+</div>
+<div class="modal-body">
+    <div class="membership-form">
+        <div class="membership-form__content">
+            <form [formGroup]="membershipForm">
+                <input formControlName="id" type="hidden" id="id">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="name">{{ 'Title' | translateAsync }}</label>
+                            <input formControlName="name" type="text" class="form-control" id="name" placeholder="{{ 'Title' | translateAsync }}">
+                            <p class="text-center" *ngIf="membershipForm.get('name')?.invalid && membershipForm.get('name')?.touched">
+                                <small *ngIf="membershipForm.get('name')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="durationInDays">{{ 'DurationInDays' | translateAsync }}</label>
+                            <input formControlName="durationInDays" type="number" class="form-control" id="durationInDays" placeholder="{{ 'durationInDays' | translateAsync }}">
+                            <p class="text-center" *ngIf="membershipForm.get('durationInDays')?.invalid && membershipForm.get('durationInDays')?.touched">
+                                <small *ngIf="membershipForm.get('durationInDays')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="price">{{ 'Price' | translateAsync }}</label>
+                            <input formControlName="price" type="number" step="0.01" class="form-control" id="price" placeholder="{{ 'price' | translateAsync }}">
+                            <p class="text-center" *ngIf="membershipForm.get('price')?.invalid && membershipForm.get('price')?.touched">
+                                <small *ngIf="membershipForm.get('price')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="membership-form__buttons text-center parent-container">
+                    <button type="button" class="btn btn-lg px-5 mx-2 btn-danger" (click)="activeModal.close(false)">{{'Cancel' | translateAsync}}</button>
+                    <button [disabled]="membershipForm.invalid" class="btn submit-btn btn-success btn-lg px-5 mx-2" (click)="onSubmit()" type="submit">{{'Save' | translateAsync}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    
+</div>

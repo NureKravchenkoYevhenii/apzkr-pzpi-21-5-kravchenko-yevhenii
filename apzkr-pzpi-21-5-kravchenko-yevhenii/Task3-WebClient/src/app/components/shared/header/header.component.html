@@ -1,0 +1,64 @@
+<header class="fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 w-100 justify-content-between">
+            <div class="main-navs">
+                <li *ngIf="isAdmin() || isParkingAdmin()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="administrationBtn" type="button" routerLink="../administration" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'administration' | translateAsync }}</b>
+                    </button>
+                </li>
+                <li *ngIf="isParkingAdmin()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="bookingsBtn" type="button" routerLink="../bookings" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'booking' | translateAsync }}</b>
+                    </button>
+                </li>
+                <li *ngIf="isParkingAdmin()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="parkingPlacesBtn" type="button" routerLink="../parking-places" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'parkingPlaces' | translateAsync }}</b>
+                    </button>
+                </li>
+                <li *ngIf="isParkingAdmin()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="tarifBtn" type="button" routerLink="../tarifs" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'tarifs' | translateAsync }}</b>
+                    </button>
+                </li>
+                <li *ngIf="isParkingAdmin()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="membershipBtn" type="button" routerLink="../memberships" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'memberships' | translateAsync }}</b>
+                    </button>
+                </li>
+                <li *ngIf="isParkingAdmin() || isAdmin()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="usersBtn" type="button" routerLink="../users" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'users' | translateAsync }}</b>
+                    </button>
+                </li>
+            </div>
+            <div class="auth-navs">
+                <li *ngIf="!isLoggedIn()" class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="loginBtn" type="button" routerLink="../login" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'login' | translateAsync}}</b>
+                    </button>
+                </li>
+                <li *ngIf="isLoggedIn()" class="d-flex nav-item align-items-center">
+                    <button (click)="logout()" type="button" routerLink="../login" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'logout' | translateAsync}}</b>
+                    </button>
+                </li>
+                <li class="d-flex nav-item align-items-center">
+                    <button (click)="onButtonClick($event)" id="registrationBtn" type="button" routerLink="../registration" class="btn btn-light px-4 me-2" data-bs-toggle="collapse" data-bs-target="#navbarMenu">
+                        <b>{{ 'register' | translateAsync }}</b>
+                    </button>
+                </li>
+                <div class="locale">
+                    <div class="locale__ua" [ngClass]="{'active': selectedLocale.language === 'uk-UA'}" (click)="onSelectLocale($event, 'uk-UA')">
+                        UA
+                    </div>
+                    <div class="locale__divider"></div>
+                    <div class="locale__en" [ngClass]="{'active': selectedLocale.language === 'en-US'}" (click)="onSelectLocale($event, 'en-US')">
+                        EN
+                    </div>
+                </div>
+            </div>
+        </ul>
+    </nav>
+</header>

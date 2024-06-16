@@ -1,0 +1,15 @@
+.parking-places-table {
+    height: 100%;
+    overflow: auto;
+
+    &-wrapper {
+        height: 55vmin;
+        width: 130vmin;
+    }
+
+    &__add-button-wrapper {
+        display: flex;
+        justify-content: end;
+        margin-bottom: 20px;
+    }
+}

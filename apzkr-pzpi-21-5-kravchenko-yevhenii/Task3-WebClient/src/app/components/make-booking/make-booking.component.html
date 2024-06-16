@@ -1,0 +1,31 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{'Booking' | translateAsync}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close(false)"></button>
+</div>
+<div class="modal-body">
+    <div class="booking-form">
+        <div class="booking-form__content">
+            <form [formGroup]="makeBookingForm">
+                <input formControlName="id" type="hidden" id="id">
+                <div class="row">
+                    <div class="col">
+                        <div class="form-group mb-3">
+                            <label for="bookDate">{{ 'BookDate' | translateAsync }}</label>
+                            <input formControlName="bookDate" type="datetime-local" class="form-control" id="bookDate" placeholder="{{ 'BookDate' | translateAsync }}">
+                            <p class="text-center" *ngIf="makeBookingForm.get('bookDate')?.invalid && makeBookingForm.get('bookDate')?.touched">
+                                <small *ngIf="makeBookingForm.get('bookDate')?.errors?.['required']" class="text-danger">{{ 'fieldIsRequired' | translateAsync}}</small>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="booking-form__buttons text-center parent-container">
+                    <button type="button" class="btn btn-lg px-5 mx-2 btn-danger" (click)="activeModal.close(false)">{{'Cancel' | translateAsync}}</button>
+                    <button [disabled]="makeBookingForm.invalid" class="btn submit-btn btn-success btn-lg px-5 mx-2" (click)="onSubmit()" type="submit">{{'Save' | translateAsync}}</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="modal-footer">
+    
+</div>

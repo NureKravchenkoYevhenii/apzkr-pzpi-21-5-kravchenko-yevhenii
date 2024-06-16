@@ -1,0 +1,17 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{'EnterComment' | translateAsync}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.close({ isSuccess: false })"></button>
+</div>
+<div class="modal-body">
+    <div class="form-group mb-3">
+        <label for="comment">{{'Comment' | translateAsync}}</label>
+        <input [(ngModel)]="comment" type="text" class="form-control" id="comment" placeholder="{{'Comment' | translateAsync}}">
+    </div>
+    <div class="buttons text-center parent-container">
+        <button type="button" class="btn btn-lg px-5 mx-2 btn-danger" (click)="activeModal.close({ isSuccess: false })">{{'Cancel' | translateAsync}}</button>
+        <button type="button" class="btn btn-lg px-5 mx-2 btn-primary" (click)="onConfirmClick()">{{'Confirm' | translateAsync}}</button>
+    </div>
+</div>
+<div class="modal-footer">
+    
+</div>

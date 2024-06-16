@@ -1,0 +1,54 @@
+nav {
+    background-color:#808080 !important;
+    box-shadow: 1px 10px 40px;
+    height: 75px;
+
+    button {
+        &.active {
+            background-color: #30373D;
+            color: #fff;
+        }
+    }
+}
+
+.main-navs {
+    display: flex;
+    margin-left: 10px;
+}
+
+.auth-navs {
+    display: flex; 
+    justify-content: space-between;
+    align-items: center;
+
+    .locale {
+        margin: 0 15px;
+        display: flex;
+        gap: 10px;
+        width: 10vmin;
+        font-size: 18px;
+
+        &__divider {
+            height: 3vmin;
+            border-left: 2px solid #30373D;
+            color: #fff;
+        }
+
+        &__en,
+        &__ua {
+            transition: all ease-in-out 0.2s;
+            cursor: pointer;
+
+            &:hover {
+                scale: 1.2;
+                transition: all ease-in-out 0.2s;
+                color: #fff;
+            }
+
+            &.active {
+                color: #fff;
+                scale: 1.1;
+            }
+        }
+    }
+}

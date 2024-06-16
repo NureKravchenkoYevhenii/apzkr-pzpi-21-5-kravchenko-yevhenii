@@ -1,0 +1,223 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="FIELD_IS_REQUIRED" xml:space="preserve">
+    <value>The field is required</value>
+  </data>
+  <data name="PASSWORD_MATCH_ERROR" xml:space="preserve">
+    <value>Passwords must match</value>
+  </data>
+  <data name="USER_NOT_FOUND" xml:space="preserve">
+    <value>User not found</value>
+  </data>
+  <data name="USER_ALREADY_HAS_BOOKING" xml:space="preserve">
+    <value>User already has a booking</value>
+  </data>
+  <data name="NO_FREE_PARKING_PLACES" xml:space="preserve">
+    <value>No free parking places</value>
+  </data>
+  <data name="CAR_NOT_FOUND" xml:space="preserve">
+    <value>Car not found</value>
+  </data>
+  <data name="MEMBERSHIP_NOT_FOUND" xml:space="preserve">
+    <value>Membership not found</value>
+  </data>
+  <data name="PARKING_PLACE_NOT_FOUND" xml:space="preserve">
+    <value>Parking place not found</value>
+  </data>
+  <data name="PARKING_OCCUPANCY_STATISTICS" xml:space="preserve">
+    <value>Parking occupancy statistics</value>
+  </data>
+  <data name="DATE" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="HOUR" xml:space="preserve">
+    <value>Hour</value>
+  </data>
+  <data name="OCCUPIED_PLACES_AMOUNT" xml:space="preserve">
+    <value>Occupied Places Amount</value>
+  </data>
+  <data name="OCCUPANCY_CHART" xml:space="preserve">
+    <value>Occupancy chart</value>
+  </data>
+  <data name="OCCUPIED_PLACES" xml:space="preserve">
+    <value>Occupied places</value>
+  </data>
+  <data name="UNKNOWN_TIME_UNIT_VALUE" xml:space="preserve">
+    <value>Unknown time unit value</value>
+  </data>
+  <data name="PAYMENT_NOT_FOUND" xml:space="preserve">
+    <value>Payment not found</value>
+  </data>
+  <data name="PAYMENT_REQUEST_FAILED" xml:space="preserve">
+    <value>Payment request failed</value>
+  </data>
+  <data name="PAYMENT_STATISTICS" xml:space="preserve">
+    <value>Payment statistics</value>
+  </data>
+  <data name="AMOUNT" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="TOTAL" xml:space="preserve">
+    <value>Total</value>
+  </data>
+  <data name="PURCHASE_TYPE" xml:space="preserve">
+    <value>Purchase type</value>
+  </data>
+  <data name="TARIFS_INTERSECT" xml:space="preserve">
+    <value>Tariffs intersect</value>
+  </data>
+  <data name="TARIF_NOT_FOUND" xml:space="preserve">
+    <value>Tariff not found</value>
+  </data>
+  <data name="USER_MEMBERSHIP_NOT_FOUND" xml:space="preserve">
+    <value>User membership not found</value>
+  </data>
+  <data name="INVALID_REFRESH_TOKEN" xml:space="preserve">
+    <value>Invalid refresh token</value>
+  </data>
+  <data name="USER_WITH_EMAIL_NOT_FOUND" xml:space="preserve">
+    <value>User with email not found</value>
+  </data>
+  <data name="INVALID_LOGIN_OR_PASSWORD" xml:space="preserve">
+    <value>Invalid login or password</value>
+  </data>
+  <data name="LOGIN_EXISTS" xml:space="preserve">
+    <value>Login exists</value>
+  </data>
+  <data name="EMAIL_EXISTS" xml:space="preserve">
+    <value>Email exists</value>
+  </data>
+  <data name="INVALID_RESET_PASSWORD_TOKEN" xml:space="preserve">
+    <value>Invalid reset password token</value>
+  </data>
+  <data name="USER_PROFILE_NOT_FOUND" xml:space="preserve">
+    <value>User profile not found</value>
+  </data>
+  <data name="USER_DATA_PARSE_FAILURE" xml:space="preserve">
+    <value>An error occured while parsing user data: </value>
+  </data>
+  <data name="PARKING_STATISTICS_FILE_NAME" xml:space="preserve">
+    <value>Parking statistics from {0} to {1}.xlsx</value>
+  </data>
+  <data name="PAYMENT_STATISTICS_FILE_NAME" xml:space="preserve">
+    <value>Payment statistics from {0} to {1}.xlsx</value>
+  </data>
+  <data name="NO_FILE_UPLOADED" xml:space="preserve">
+    <value>No file uploaded</value>
+  </data>
+  <data name="INVALID_FILE_FORMAT" xml:space="preserve">
+    <value>Invalid file format. Please upload an Excel file</value>
+  </data>
+  <data name="INVALID_EMAIL_ADDRESS_ERROR" xml:space="preserve">
+    <value>Invalid email address</value>
+  </data>
+  <data name="RANGE_ERROR_FROM" xml:space="preserve">
+    <value>Value must be at least {1}</value>
+  </data>
+  <data name="PARKING_SESSION_NOT_FOUND" xml:space="preserve">
+    <value>Parking session not found</value>
+  </data>
+  <data name="PurchaseMembership" xml:space="preserve">
+    <value>Membership purchase</value>
+  </data>
+  <data name="PayForParkingSession" xml:space="preserve">
+    <value>Payment for parking</value>
+  </data>
+</root>
